@@ -26,7 +26,7 @@
 	<body>
 		
 			<div class='jumbotron'>
-				<div class="container-fluid">
+				<div class="container">
 					<h1>Welcome!</h1>
 					<p>This webpage was made by Lucas Burdell for the <a class='text-primary' href="https://study.sagepub.com/jonessmith2e/student-resources/theoretical-orientation-scale">Theoretical Orientation Scale.</a> There are no pretty web-based Theoretical Orientation Scales online, and doing it by hand is a chore. I hope this makes taking the test easier on Psychology students, and makes it more interesting.</p>
 					<div class='row bordered-block' id="question-holder">
@@ -43,13 +43,7 @@
 					var questionData = new questionModel(questions["question_" + i])
 				}
 			});
-				/*
-				var question1Data = new questionModel({question_number: 1, question_title: "Question 1", question_text: "Hello, world This is the first question! I hope you enjoy reading it!"});
-				question1Data.changed(function(newNum){
-					console.log(newNum);
-				})
-				*/
-			
+
 		</script>
 	</body>
 </html>
