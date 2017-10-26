@@ -35,13 +35,21 @@
 		</div>
 		<script type="text/JavaScript" src="question.handlebars.template.js"></script>
 		<script type="text/JavaScript" src="questionGenerator.js"></script>
+		<script type="text/JavaScript" src="questions.js"></script>
 		<script>
 			$(document).ready(function(){
+				var numberOfQuestions = questions.number_of_questions
+				for (var i = 1; i <= numberOfQuestions; i++) {
+					var questionData = new questionModel(questions["question_" + i])
+				}
+			});
+				/*
 				var question1Data = new questionModel({question_number: 1, question_title: "Question 1", question_text: "Hello, world This is the first question! I hope you enjoy reading it!"});
 				question1Data.changed(function(newNum){
 					console.log(newNum);
 				})
-			})
+				*/
+			
 		</script>
 	</body>
 </html>
