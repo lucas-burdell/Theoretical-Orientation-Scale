@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<!-- JQuery 3.2.1 -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+		<!-- Latest compiled and minified JavaScript -->
+		<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script -->
+
+		<!-- Custom stylesheet -->
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		
+			<div class='jumbotron'>
+				<div class="container-fluid">
+					<h1>Welcome!</h1>
+					<p>This webpage was made by Lucas Burdell for the <a class='text-primary' href="https://study.sagepub.com/jonessmith2e/student-resources/theoretical-orientation-scale">Theoretical Orientation Scale.</a> There are no pretty web-based Theoretical Orientation Scales online, and doing it by hand is a chore. I hope this makes taking the test easier on Psychology students, and makes it more interesting.</p>
+					<div class='row bordered-block'>
+						<div id="question1">
+							<h4><strong>Example Question</strong></h4>
+							<p class="text">This is a test of a different way of doing the radio group.</p>
+							<div id="question1buttons">
+								<a class="btn btn-default" id="question1-option1">strongly disagree</a>
+								<a class="btn btn-default" id="question1-option2">disagree</a>
+								<a class="btn btn-default"  id="question1-option3">slightly disagree</a>
+								<a class="btn btn-default"  id="question1-option4">neutral</a>
+								<a class="btn btn-default"  id="question1-option5">slightly agree</a>
+								<a class="btn btn-default" id="question1-option6">agree</a>
+								<a class="btn btn-default" id="question1-option7">strongly agree</a>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+		</div>
+									<script>
+										$(document).ready(function(){
+											var divider = $("#question1buttons")
+											var buttons = divider.children();
+											var selectedButton = null;
+											var selectedNumber = 4
+
+											for (var i = buttons.length - 1; i >= 0; i--) {
+												console.log("setting click for " + buttons[i].id)
+												
+
+												var button = buttons[i]
+												console.log("#" + button.id);
+												if (button.id == "question1-option" + selectedNumber){
+													console.log("found first button")
+													var testme = $(button)
+													selectedButton = testme
+													testme.toggleClass("btn-default")
+													testme.toggleClass("btn-primary")
+												}
+
+												divider.on("click", "#" + button.id, function(event){
+													selectedButton.toggleClass("btn-primary")
+													selectedButton.toggleClass("btn-default")
+													selectedButton = $(event.target)
+													selectedButton.toggleClass("btn-primary")
+													selectedButton.toggleClass("btn-default")
+													var newId = event.target.id
+													selectedNumber = parseInt(newId.substring(newId.length - 1));
+												});
+											}
+										})
+									</script>
+	</body>
+</html>
